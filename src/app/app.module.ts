@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { HealthBenefitsCalcComponent } from './health-benefits-calc/health-benefits-calc.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

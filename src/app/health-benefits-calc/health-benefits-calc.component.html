@@ -1,58 +1,67 @@
-<div>
-    <br />
 
-    <div>Estimate Your Benefit Cost</div>
-    <br />
+
+<div>
+    <span class="emptyRow"></span>
+
+    <div style="font-weight:bold;">Estimate Your Benefit Cost</div>
+    <span class="emptyRow"></span>
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-        <div style="font-weight: bold;">Employee Information</div>
-        <br />
-        <label>
-            First Name:
-            <input type="text" formControlName="firstName" required>
-        </label>
+        <div style="font-style:italic">Employee Information</div>
+        <span class="emptyRow"></span>
 
-        <label>
-            Last Name:
-            <input type="text" formControlName="lastName" required>
-        </label>
+        <mat-form-field class="full">
+            <input matInput placeholder="Employee First Name" formControlName="firstName" type="text" style="margin:10px;">
+        </mat-form-field>
 
-        <br />
-        <br />
+        <span style="margin-left:100px"></span>
 
+        <mat-form-field class="full">
+            <input matInput placeholder="Employee Last Name" formControlName="lastName" type="text" style="margin:10px;">
+        </mat-form-field>
 
-        <br />
+        <span class="emptyRow"></span>
+
         <div formArrayName="dependents">
-            <span style="font-weight: bold;">Dependent Information</span>&nbsp;<button (click)="addDependent()">Add
-                Dependent</button>
+            <span style="font-style:italic"> Dependent Information</span>
+            
+            <span style="margin:10px"></span>
+            
+            <button (click)="addDependent()">Add Dependent</button>
 
-            <br />
-            <br />
+
+            <span class="emptyRow"></span>
+
+            <span class="emptyRow"></span>
+
 
             <div *ngFor="let dependent of dependents.controls; let i=index">
                 <!-- The repeated alias template -->
                 <div [formGroupName]="i">
-                    <label>
-                        First Name:
-                        <input type="text" formControlName="dependentFirstName" required>
-                    </label>
 
-                    <label>
-                        Last Name:
-                        <input type="text" formControlName="dependentLastName" required>
-                    </label>
+                    <mat-form-field class="full">
+                        <input matInput placeholder="Dependent First Name" formControlName="dependentFirstName" type="text" style="margin:10px;">
+                    </mat-form-field>
 
-                    &nbsp;
-                    <button (click)="deleteDependentRow(i)">Delete</button>
+                    <span style="margin-left:100px"></span>
+
+                    <mat-form-field class="full">
+                        <input matInput placeholder="Dependent Last Name" formControlName="dependentLastName" type="text" style="margin:10px;">
+                    </mat-form-field>
+
+                    <span style="margin-left:50px"></span>
+
+                    <button mat-raised-button color="warn" (click)="deleteDependentRow(i)">Delete</button>
+
+                    <div style="padding-top: 10px;"></div>
 
                 </div>
-                <br/>
             </div>
         </div>
 
-        
 
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+        <button type="submit" mat-button color="primary" type="submit" [disabled]="!profileForm.valid" style="margin:10px;">Submit</button>
 
     </form>
 
