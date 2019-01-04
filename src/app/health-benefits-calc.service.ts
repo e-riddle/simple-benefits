@@ -17,7 +17,7 @@ export class HealthBenefitsCalcService {
     total += this.calcDependentCost(parameters.firstName, this.employeeBaseCost);
 
     for (let i = 0; i < parameters.dependents.length; i++){
-      total += this.calcDependentCost(parameters.dependents[i].dependentFirstName, this.dependentBaseCost);
+      total += this.calcDependentCost(parameters.dependents[i].firstName, this.dependentBaseCost);
     }
 
     return total;
@@ -44,7 +44,7 @@ export class BenefitsCalcParameters {
 
 export class Dependent {
   
-  public dependentFirstName: string;  //TODO: Eliminate redundant prop name
-  public dependentLastName: string;
+  public firstName: string;  //TODO: Eliminate redundant prop name
+  public lastName: string;
 
 }

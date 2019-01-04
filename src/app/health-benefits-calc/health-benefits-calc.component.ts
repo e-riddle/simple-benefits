@@ -29,8 +29,8 @@ export class HealthBenefitsCalcComponent {
 
   createDependentRow(): FormGroup {
     return this.fb.group({
-      dependentFirstName: '',
-      dependentLastName: ''
+      firstName: '',
+      lastName: ''
     });
   }
 
