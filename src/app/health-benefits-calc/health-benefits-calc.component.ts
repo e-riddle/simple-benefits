@@ -3,6 +3,9 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
+import { HealthBenefitsCalcService } from '../health-benefits-calc.service';
+import { BenefitsCalcParameters } from '../health-benefits-calc.service';
+import { Dependent } from '../health-benefits-calc.service';
 
 
 @Component({
@@ -11,6 +14,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./health-benefits-calc.component.css']
 })
 export class HealthBenefitsCalcComponent {
+  calculatedValue: string;
 
   profileForm = this.fb.group({
     annualSalary: ['', Validators.required],
@@ -18,7 +22,7 @@ export class HealthBenefitsCalcComponent {
     lastName: [''],
     dependents: this.fb.array([])
   });
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private svc: HealthBenefitsCalcService) { }
   addDependent() {
     this.dependents.push(this.createDependentRow());
   }
@@ -38,6 +42,25 @@ export class HealthBenefitsCalcComponent {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+
+    const parameters = new BenefitsCalcParameters();
+    parameters.annualSalary = this.profileForm.get('annualSalary').value;
+    parameters.firstName = this.profileForm.get('firstName').value;
+    parameters.lastName = this.profileForm.get('lastName').value;
+    const formArray = this.profileForm.get('dependents') as FormArray;
+    const allDependents: Dependent[] = [];
+    const json = this.profileForm.value;
+
+    json.dependents.map(x => {
+        allDependents.push(x);
+    });
+
+    parameters.dependents = allDependents;
+
+    console.log(parameters);
+    
+    //Do the calc!!!!
+
   }
 
   get dependents() {
