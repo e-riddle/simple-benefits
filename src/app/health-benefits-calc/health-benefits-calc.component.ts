@@ -47,7 +47,6 @@ export class HealthBenefitsCalcComponent {
     parameters.annualSalary = this.profileForm.get('annualSalary').value;
     parameters.firstName = this.profileForm.get('firstName').value;
     parameters.lastName = this.profileForm.get('lastName').value;
-    const formArray = this.profileForm.get('dependents') as FormArray;
     const allDependents: Dependent[] = [];
     const json = this.profileForm.value;
 
@@ -58,7 +57,11 @@ export class HealthBenefitsCalcComponent {
     parameters.dependents = allDependents;
 
     console.log(parameters);
-    
+
+    let result = this.svc.calcBenefits(parameters);
+
+    console.log(result);
+
     //Do the calc!!!!
 
   }

@@ -17,7 +17,7 @@ export class HealthBenefitsCalcService {
     total += this.calcDependentCost(parameters.firstName, this.employeeBaseCost);
 
     for (let i = 0; i < parameters.dependents.length; i++){
-      total += this.calcDependentCost(parameters.dependents[i].firstName, this.dependentBaseCost);
+      total += this.calcDependentCost(parameters.dependents[i].dependentFirstName, this.dependentBaseCost);
     }
 
     return total;
@@ -43,20 +43,8 @@ export class BenefitsCalcParameters {
 }
 
 export class Dependent {
-  // constructor(firstName: string, lastName: string){
-  //   this.firstName = firstName;
-  //   this.lastName = lastName;
-  // }
-
-  public firstName: string;
-  public lastName: string;
-
-
-  // note you could of just used the constructor,
-  // but its a personal preference to have a serialize and deserialize for data coming from the server in a json object type.
-  deserialize(data: any){
-    this.lastName = data.dependentLastName;
-    this.firstName = data.dependentFirstName;
-  }
+  
+  public dependentFirstName: string;  //TODO: Eliminate redundant prop name
+  public dependentLastName: string;
 
 }
