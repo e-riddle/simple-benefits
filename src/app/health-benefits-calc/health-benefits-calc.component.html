@@ -1,0 +1,64 @@
+<div>
+    <br />
+
+    <div>Estimate Your Benefit Cost</div>
+    <br />
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <div style="font-weight: bold;">Employee Information</div>
+        <br />
+        <label>
+            First Name:
+            <input type="text" formControlName="firstName" required>
+        </label>
+
+        <label>
+            Last Name:
+            <input type="text" formControlName="lastName" required>
+        </label>
+
+        <br />
+        <br />
+
+
+        <br />
+        <div formArrayName="aliases">
+            <span style="font-weight: bold;">Dependent Information</span>&nbsp;<button (click)="addAlias()">Add
+                Dependent</button>
+
+            <br />
+            <br />
+
+            <div *ngFor="let address of aliases.controls; let i=index">
+                <!-- The repeated alias template -->
+                <div [formGroupName]="i">
+                    <label>
+                        First Name:
+                        <input type="text" formControlName="dependentFirstName">
+                    </label>
+
+                    <label>
+                        Last Name:
+                        <input type="text" formControlName="dependentLastName">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+    </form>
+
+</div>
+
+<p>
+    Form Value: {{ profileForm.value | json }}
+</p>
+
+
+<p>
+    Form Status: {{ profileForm.status }}
+</p>
