@@ -33,6 +33,12 @@ export class HealthBenefitsCalcComponent {
       dependentLastName: ''
     });
   }
+
+  deleteDependentRow(i: number) {
+    this.dependents.removeAt(i)
+  }
+
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
