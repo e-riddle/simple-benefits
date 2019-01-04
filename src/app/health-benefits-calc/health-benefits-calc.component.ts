@@ -22,12 +22,12 @@ export class HealthBenefitsCalcComponent {
     // aliases: this.fb.array([
     //   this.createDependentRow()
     // ])
-    aliases: this.fb.array([])
+    dependents: this.fb.array([])
   });
   constructor(private fb: FormBuilder) { }
 
   addAlias() {
-    this.aliases.push(this.createDependentRow());
+    this.dependents.push(this.createDependentRow());
   }
 
   createDependentRow(): FormGroup {
@@ -40,7 +40,8 @@ export class HealthBenefitsCalcComponent {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
   }
-  get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
+  
+  get dependents() {
+    return this.profileForm.get('dependents') as FormArray;
   }
 }
