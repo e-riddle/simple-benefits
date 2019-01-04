@@ -10,16 +10,23 @@
         <div style="font-style:italic">Employee Information</div>
         <span class="emptyRow"></span>
 
+      
         <mat-form-field class="full">
-            <input matInput placeholder="Employee First Name" formControlName="firstName" type="text" style="margin:10px;">
+            <input matInput placeholder="First Name" formControlName="firstName" type="text" style="margin:10px;">
         </mat-form-field>
 
         <span style="margin-left:100px"></span>
 
         <mat-form-field class="full">
-            <input matInput placeholder="Employee Last Name" formControlName="lastName" type="text" style="margin:10px;">
+            <input matInput placeholder="Last Name" formControlName="lastName" type="text" style="margin:10px;">
         </mat-form-field>
 
+        <span class="emptyRow"></span>
+
+        <mat-form-field class="full">
+            <input matInput placeholder="Annual Salary" formControlName="annualSalary" type="text" style="margin:10px;">
+        </mat-form-field>
+        
         <span class="emptyRow"></span>
 
         <div formArrayName="dependents">

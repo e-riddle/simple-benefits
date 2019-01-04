@@ -11,18 +11,14 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./health-benefits-calc.component.css']
 })
 export class HealthBenefitsCalcComponent {
-  payPeriods = 26;
-  employeeBaseCost = 1000;
-  dependentBaseCost = 500;
-  discountRate = 0.1;
 
   profileForm = this.fb.group({
+    annualSalary: ['', Validators.required],
     firstName: ['', Validators.required],
     lastName: [''],
     dependents: this.fb.array([])
   });
   constructor(private fb: FormBuilder) { }
-  
   addDependent() {
     this.dependents.push(this.createDependentRow());
   }
