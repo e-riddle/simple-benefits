@@ -17,9 +17,8 @@ export class HealthBenefitsCalcComponent {
   calculatedValue: string;
 
   profileForm = this.fb.group({
-    annualSalary: ['', Validators.required],
     firstName: ['', Validators.required],
-    lastName: [''],
+    lastName: ['', Validators.required],
     dependents: this.fb.array([])
   });
   constructor(private fb: FormBuilder, private svc: HealthBenefitsCalcService) { }
@@ -29,8 +28,8 @@ export class HealthBenefitsCalcComponent {
 
   createDependentRow(): FormGroup {
     return this.fb.group({
-      firstName: '',
-      lastName: ''
+      firstName:  ['', Validators.required],
+      lastName:  ['', Validators.required]
     });
   }
 
@@ -44,7 +43,7 @@ export class HealthBenefitsCalcComponent {
     console.warn(this.profileForm.value);
 
     const parameters = new BenefitsCalcParameters();
-    parameters.annualSalary = this.profileForm.get('annualSalary').value;
+    // parameters.annualSalary = this.profileForm.get('annualSalary').value;
     parameters.firstName = this.profileForm.get('firstName').value;
     parameters.lastName = this.profileForm.get('lastName').value;
     const allDependents: Dependent[] = [];
