@@ -3,6 +3,7 @@ import { BenefitsCalcParameters } from './benefits-calc-parameters.model';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
+import { IHealthBenefitsCalc } from './health-benefits-calc.interface';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class HealthBenefitsCalcApiService {
+export class HealthBenefitsCalcApiService implements IHealthBenefitsCalc {
   BASE_URL: string = 'http://localhost:5000/api';  //TODO: Store this in configuration
   constructor(private http: HttpClient) {}
 

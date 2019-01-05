@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BenefitsCalcParameters } from './benefits-calc-parameters.model';
 import { Observable, of } from 'rxjs';
+import { IHealthBenefitsCalc } from './health-benefits-calc.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HealthBenefitsCalcService {
+export class HealthBenefitsCalcService implements IHealthBenefitsCalc{
   payPeriods = 26;
   employeeBaseCost = 1000;
   dependentBaseCost = 500;
