@@ -63,8 +63,6 @@ export class HealthBenefitsCalcComponent {
 
     this.calculatedValue = result;
 
-    //Do the calc!!!!
-
   }
 
   get dependents() {
