@@ -4,8 +4,7 @@ import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HealthBenefitsCalcService } from '../health-benefits-calc.service';
-import { BenefitsCalcParameters } from '../health-benefits-calc.service';
-import { Dependent } from '../health-benefits-calc.service';
+import { BenefitsCalcParameters, Dependent } from '../benefits-calc-parameters.model';
 
 
 @Component({

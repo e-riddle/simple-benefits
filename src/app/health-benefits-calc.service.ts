@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BenefitsCalcParameters } from './benefits-calc-parameters.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,16 +35,16 @@ export class HealthBenefitsCalcService {
 
 }
 
-export class BenefitsCalcParameters {
-  annualSalary: number;
-  firstName: string;
-  lastName: string;
-  dependents: Dependent[];
+// export class BenefitsCalcParameters {
+//   annualSalary: number;
+//   firstName: string;
+//   lastName: string;
+//   dependents: Dependent[];
 
-}
+// }
 
-export class Dependent {
-  public firstName: string;  //TODO: Eliminate redundant prop name
-  public lastName: string;
+// export class Dependent {
+//   public firstName: string;  //TODO: Eliminate redundant prop name
+//   public lastName: string;
 
-}
+// }
