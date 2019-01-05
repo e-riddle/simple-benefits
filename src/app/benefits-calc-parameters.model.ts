@@ -1,5 +1,4 @@
 export class BenefitsCalcParameters {
-    annualSalary: number;
     firstName: string;
     lastName: string;
     dependents: Dependent[]; 
