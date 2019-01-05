@@ -65,11 +65,6 @@ export class HealthBenefitsCalcComponent {
                 this.calculatedValue = result;
               });
 
-    /*
-    NOTE: Use this call if injected HealthBenefitsCalcService (Non api version)
-    this.calculatedValue = this.svc.calcBenefits(parameters);
-    */
-
   }
 
   get dependents() {

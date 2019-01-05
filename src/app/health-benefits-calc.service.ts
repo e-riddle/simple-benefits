@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BenefitsCalcParameters } from './benefits-calc-parameters.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class HealthBenefitsCalcService {
 
   constructor() { }
 
-  calcBenefits(parameters: BenefitsCalcParameters): number {
+  calcBenefits(parameters: BenefitsCalcParameters): Observable<number> {
     let total = 0;
 
     total += this.calcDependentCost(parameters.firstName, this.employeeBaseCost);
@@ -20,8 +21,7 @@ export class HealthBenefitsCalcService {
     for (let i = 0; i < parameters.dependents.length; i++){
       total += this.calcDependentCost(parameters.dependents[i].firstName, this.dependentBaseCost);
     }
-
-    return total;
+    return of(total);
   }
 
   calcDependentCost(firstName: string, baseCost:number) {
