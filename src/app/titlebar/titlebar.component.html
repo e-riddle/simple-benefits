@@ -2,9 +2,9 @@
   
     <h2>Benefits Portal</h2>
     <nav>
-        <a routerLink="/">Dashboard</a>
+        <a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
         |
-        <a routerLink="/estimate-benefits">Estimate Your Benefit Cost</a>
+        <a routerLink="/estimate-benefits" routerLinkActive="active-link">Estimate Your Benefit Cost</a>
 
         |&nbsp;<button *ngIf="isUserAuthenticated()" (click)="logOut()">Logout</button> 
     </nav>
