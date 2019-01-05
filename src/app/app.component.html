@@ -1,14 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:left;">
+
+<!-- <div style="text-align:left;" *ngIf="!isUserAuthenticated()">
   
-  <h1>{{ title }}</h1>
+  <h1>Benefits Portal</h1>
   
-  <nav>
+  
+<nav>
     <a routerLink="/dashboard">Benefits Dashboard</a>
     &nbsp;
     <a routerLink="/estimate-benefits">Estimate Your Benefit Cost</a>
   </nav>
-</div>
 
+  <span class="emptyRow"></span>
+  
+  <button *ngIf="isUserAuthenticated()" (click)="logOut()">Logout</button> 
+</div> -->
 
 <router-outlet></router-outlet> 

@@ -1,3 +1,19 @@
-<p>
-  Benefits dashboard works.  This is a work in progress.
-</p>
+<div style="text-align:left;">
+  
+    <h1>Your Benefits Dashboard</h1>
+    <nav>
+        <a routerLink="/dashboard">Benefits Dashboard</a>
+        &nbsp;
+        <a routerLink="/estimate-benefits">Estimate Your Benefit Cost</a>
+    </nav>
+
+    <p>Content is on the way.</p>
+
+    
+   
+
+    <span class="emptyRow"></span>
+    
+    <button *ngIf="isUserAuthenticated()" (click)="logOut()">Logout</button> 
+ 
+  </div> 

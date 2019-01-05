@@ -5,10 +5,12 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { IHealthBenefitsCalc } from './health-benefits-calc.interface';
 
+const token = localStorage.getItem('jwt');
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    'Authorization': 'Bearer ' + token
   })
 };
 
