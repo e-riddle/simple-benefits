@@ -13,6 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth-guard.service';
+import { TitlebarComponent } from './titlebar/titlebar.component';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -23,7 +24,8 @@ export function getToken(): string {
     AppComponent,
     HealthBenefitsCalcComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    TitlebarComponent
   ],
   imports: [
     BrowserModule,

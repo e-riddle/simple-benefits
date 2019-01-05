@@ -11,15 +11,15 @@ export class LoginComponent {
   invalidLogin: boolean;
 
   constructor(private router: Router, private http: HttpClient) { }
-
+  BASE_URL: string = 'http://localhost:5000/api';  //TODO: Store this in configuration
   login(form: NgForm) {
-    let credentials = JSON.stringify(form.value);
-    this.http.post('http://localhost:5000/api/auth/login', credentials, {
+    const credentials = JSON.stringify(form.value);
+    this.http.post(`${this.BASE_URL}/auth/login`, credentials, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }).subscribe(response => {
-      let token = (<any>response).token;
+      const token = (<any>response).token;
       localStorage.setItem('jwt', token);
       this.invalidLogin = false;
       this.router.navigate(['/']);
