@@ -5,6 +5,7 @@ import { FormArray } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HealthBenefitsCalcService } from '../health-benefits-calc.service';
 import { BenefitsCalcParameters, Dependent } from '../benefits-calc-parameters.model';
+import { HealthBenefitsCalcApiService } from '../health-benefits-calc-api.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class HealthBenefitsCalcComponent {
     lastName: ['', Validators.required],
     dependents: this.fb.array([])
   });
-  constructor(private fb: FormBuilder, private svc: HealthBenefitsCalcService) { }
+  constructor(private fb: FormBuilder, private svc: HealthBenefitsCalcApiService) { }
   addDependent() {
     this.calculatedValue = 0;
     this.dependents.push(this.createDependentRow());
@@ -59,9 +60,15 @@ export class HealthBenefitsCalcComponent {
 
     parameters.dependents = allDependents;
 
-    const result = this.svc.calcBenefits(parameters);
+    this.svc.calcBenefits(parameters)
+              .subscribe(result => {
+                this.calculatedValue = result;
+              });
 
-    this.calculatedValue = result;
+    /*
+    NOTE: Use this call if injected HealthBenefitsCalcService (Non api version)
+    this.calculatedValue = this.svc.calcBenefits(parameters);
+    */
 
   }
 
