@@ -14,7 +14,7 @@ import { Dependent } from '../health-benefits-calc.service';
   styleUrls: ['./health-benefits-calc.component.css']
 })
 export class HealthBenefitsCalcComponent {
-  calculatedValue: string;
+  calculatedValue = 0;
 
   profileForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -23,7 +23,9 @@ export class HealthBenefitsCalcComponent {
   });
   constructor(private fb: FormBuilder, private svc: HealthBenefitsCalcService) { }
   addDependent() {
+    this.calculatedValue = 0;
     this.dependents.push(this.createDependentRow());
+    return;
   }
 
   createDependentRow(): FormGroup {
@@ -34,16 +36,19 @@ export class HealthBenefitsCalcComponent {
   }
 
   deleteDependentRow(i: number) {
-    this.dependents.removeAt(i)
+    this.calculatedValue = 0;
+    this.dependents.removeAt(i);
   }
 
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+    if (this.profileForm.status === 'INVALID'){
+      this.calculatedValue = 0;
+      return;
+    }
 
     const parameters = new BenefitsCalcParameters();
-    // parameters.annualSalary = this.profileForm.get('annualSalary').value;
     parameters.firstName = this.profileForm.get('firstName').value;
     parameters.lastName = this.profileForm.get('lastName').value;
     const allDependents: Dependent[] = [];
@@ -55,11 +60,9 @@ export class HealthBenefitsCalcComponent {
 
     parameters.dependents = allDependents;
 
-    console.log(parameters);
+    const result = this.svc.calcBenefits(parameters);
 
-    let result = this.svc.calcBenefits(parameters);
-
-    console.log(result);
+    this.calculatedValue = result;
 
     //Do the calc!!!!
 

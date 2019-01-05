@@ -58,21 +58,30 @@
 
                 </div>
             </div>
+            
+            
         </div>
 
 
+        <button type="submit" mat-button color="primary" type="submit" [disabled]="!profileForm.valid" style="margin:10px;">Calculate</button>
 
-        <button type="submit" mat-button color="primary" type="submit" [disabled]="!profileForm.valid" style="margin:10px;">Submit</button>
+
+
+        
 
     </form>
 
 </div>
 
-<p>
+<p [style.display]="calculatedValue === 0 ? 'none' : 'block'">
+    Your Benefits Cost: {{ calculatedValue | currency }}
+</p>
+
+<!-- <p>
     Form Value: {{ profileForm.value | json }}
 </p>
 
 
 <p>
     Form Status: {{ profileForm.status }}
-</p>
+</p> -->

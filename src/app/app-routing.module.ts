@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HealthBenefitsCalcComponent } from './health-benefits-calc/health-benefits-calc.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatFormFieldModule } from '@angular/material';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), MatFormFieldModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

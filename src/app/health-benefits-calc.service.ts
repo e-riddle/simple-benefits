@@ -43,7 +43,6 @@ export class BenefitsCalcParameters {
 }
 
 export class Dependent {
-  
   public firstName: string;  //TODO: Eliminate redundant prop name
   public lastName: string;
 
