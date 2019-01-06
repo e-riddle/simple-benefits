@@ -3,11 +3,10 @@ LABEL maintainer="Eric Riddle <e-riddle@hotmail.com>"
 WORKDIR /publish
 
 COPY . ./
-#RUN rm -rf dist
 RUN npm install
 RUN ng build --prod
 
-FROM nginx:alpine
+FROM nginx
 WORKDIR /usr/share/nginx/html
 COPY --from=build-env /publish/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build-env /publish/dist/simple-benefits .
