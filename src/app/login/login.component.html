@@ -1,14 +1,16 @@
-<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <div class="container-fluid">
-        <h3 class="form-signin-heading">Login</h3>
-        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
-        <br/>
-        <label for="username" class="sr-only">Username</label>
-        <input type="email" id="username" name="username" ngModel class="form-control" placeholder="User Name" required autofocus>
-        <br/>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
-        <br/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div>
+        <div>Benefits Portal Login</div>
+       
+        <span class="emptyRow"></span>
+        <input type="email" id="username" name="username" ngModel  placeholder="User Name" required autofocus>
+        <span class="emptyRow"></span>
+        <input type="password" id="password" name="password" ngModel  placeholder="Password" required>
+        <span class="emptyRow"></span>
+        <span class="emptyRow"></span>
+        <button type="submit">Sign In</button>
+        <span class="emptyRow"></span>
+        <span class="emptyRow"></span>
+        <div *ngIf="invalidLogin" style="font-size: 12px;color:red;">Invalid username or password.</div>
     </div>
 </form>
