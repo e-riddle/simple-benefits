@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { IHealthBenefitsCalc } from './health-benefits-calc.interface';
+import { environment } from '../environments/environment';
 
 const token = localStorage.getItem('jwt');
 
@@ -18,7 +19,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class HealthBenefitsCalcApiService implements IHealthBenefitsCalc {
-  BASE_URL: string = 'http://localhost:5000/api';  //TODO: Store this in configuration
+  BASE_URL: string = environment.apiBaseUrl;
   constructor(private http: HttpClient) {}
 
   calcBenefits(parameters: BenefitsCalcParameters): Observable<number> {

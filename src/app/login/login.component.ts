@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'login',
@@ -9,9 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   invalidLogin: boolean;
-
+  BASE_URL: string = environment.apiBaseUrl;
   constructor(private router: Router, private http: HttpClient) { }
-  BASE_URL: string = 'http://localhost:5000/api';  //TODO: Store this in configuration
   login(form: NgForm) {
     const credentials = JSON.stringify(form.value);
     this.http.post(`${this.BASE_URL}/auth/login`, credentials, {
