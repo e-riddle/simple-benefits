@@ -1,0 +1,16 @@
+<div style="text-align:left;">
+  
+    <h2>Benefits Portal</h2>
+    <nav>
+        <a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+        |
+        <a routerLink="/estimate-benefits" routerLinkActive="active-link">Estimate Your Benefit Cost</a>
+
+        |&nbsp;<button *ngIf="isUserAuthenticated()" (click)="logOut()">Logout</button> 
+    </nav>
+
+    <span class="emptyRow"></span>
+    
+  </div> 
+
+  <router-outlet></router-outlet>

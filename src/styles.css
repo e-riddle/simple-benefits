@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 100; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.emptyRow{
+    margin-top: 1em;
+    display: block;
+  }

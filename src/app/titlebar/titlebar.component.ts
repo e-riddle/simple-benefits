@@ -3,11 +3,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-titlebar',
+  templateUrl: './titlebar.component.html',
+  styleUrls: ['./titlebar.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class TitlebarComponent implements OnInit {
 
   constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
@@ -27,4 +27,5 @@ export class DashboardComponent implements OnInit {
     localStorage.removeItem('jwt');
     this.router.navigateByUrl('/login');
   }
+
 }

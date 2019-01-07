@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+    app:
+        image: 'nginx:simple-benefits'
+        build: '.'
+        ports:
+            - 3000:80
+        command: /bin/bash -c "sed -i 's/??API_BASE_URL??/http:\/\/localhost:5000\/api/g' /usr/share/nginx/html/main*.js && exec nginx -g 'daemon off;'"
+        
